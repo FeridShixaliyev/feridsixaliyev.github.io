@@ -144,9 +144,9 @@
             }
             let artiq = 0;
             if (high > 2.2) { artiq = high - 2.2; artiq = Math.round(artiq * 100) / 100; }
-            let akril = (longe * 250) + (artiq * 250);
-            let membran = (longe * 350) + (artiq * 350);
-            let boya = (longe * 550) + (artiq * longe * 350);
+            let akril = ((longe * 250) + (artiq * 250)) *30/100+(longe * 250) + (artiq * 250);
+            let membran = ((longe * 350) + (artiq * 350)) *20/100 + ((longe * 350) + (artiq * 350);
+            let boya = ((longe * 550) + (artiq * longe * 350))* 15/100 + (longe * 550) + (artiq * longe * 350);
             let ekstraMaliyet = 0;
             if (document.getElementById('panel').checked) ekstraMaliyet += 200;
             if (document.getElementById('led').checked) ekstraMaliyet += 150;
