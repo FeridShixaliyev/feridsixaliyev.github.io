@@ -7,15 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #4CAF50;
-            --dark-green: #388E3C;
-            --accent-green: #66BB6A;
+            --primary-green: #4CAF50;   /* Ana yeşil */
+            --dark-green: #388E3C;      /* Koyu yeşil */
+            --accent-green: #66BB6A;    /* Vurgu yeşili */
             --text-color: #333;
-            --light-bg: #e8f5e9;
+            --light-bg: #e8f5e9;        /* Açık yeşilimsi arka plan */
             --card-bg: #ffffff;
-            --border-color: #c8e6c9;
+            --border-color: #c8e6c9;    /* Hafif yeşil kenarlık */
             --shadow-color: rgba(0, 0, 0, 0.1);
         }
+
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
@@ -28,6 +29,7 @@
             min-height: 100vh;
             box-sizing: border-box;
         }
+
         .container {
             background-color: var(--card-bg);
             padding: 30px;
@@ -36,11 +38,20 @@
             max-width: 480px;
             width: 100%;
             border: 1px solid var(--border-color);
+            /* YENİ: Animasyon için başlangıç durumu */
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.8s ease-out forwards;
         }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+        /* Sayfa yüklenirken container'ı yavaşça görünür yapan animasyon */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h2 {
             text-align: center;
             color: var(--dark-green);
@@ -48,7 +59,15 @@
             font-size: 1.8em;
             font-weight: 700;
         }
-        label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--dark-green); font-size: 1.1em; }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--dark-green);
+            font-size: 1.1em;
+        }
+
         input[type="number"] {
             width: calc(100% - 24px);
             padding: 12px;
@@ -58,14 +77,18 @@
             box-sizing: border-box;
             font-size: 1em;
             color: var(--text-color);
+            /* YENİ: Hızlı ve yumuşak geçişler */
             transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
         }
         input[type="number"]:focus {
             border-color: var(--primary-green);
             box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
             outline: none;
+            /* YENİ: Focus'ta hafif büyütme efekti */
             transform: scale(1.01);
         }
+
+        /* Ekstra Seçenekler */
         .ekstralar {
             margin-bottom: 30px;
             padding: 20px;
@@ -73,10 +96,31 @@
             border-radius: 8px;
             background-color: #f9fdf9;
         }
-        .ekstralar p { font-weight: 700; margin-top: 0; margin-bottom: 15px; color: var(--dark-green); font-size: 1.1em; }
-        .ekstralar label { transition: background-color 0.3s ease; padding: 5px 0; border-radius: 4px; }
-        .ekstralar label:hover { background-color: #e6ffe6; }
-        .ekstralar input[type="checkbox"] { margin-right: 12px; width: 18px; height: 18px; accent-color: var(--primary-green); cursor: pointer; }
+        .ekstralar p {
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--dark-green);
+            font-size: 1.1em;
+        }
+        .ekstralar label {
+            /* YENİ: Checkbox hover animasyonu için etiket de kullanılıyor */
+            transition: background-color 0.3s ease;
+            padding: 5px 0; /* Geçiş için padding eklendi */
+            border-radius: 4px;
+        }
+        .ekstralar label:hover {
+            background-color: #e6ffe6; /* Hover'da hafif arka plan rengi */
+        }
+        .ekstralar input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        /* Hesapla Düğmesi */
         button {
             background-color: var(--primary-green);
             color: white;
@@ -88,10 +132,21 @@
             font-weight: 700;
             width: 100%;
             margin-top: 20px;
+            /* Geçişler zaten vardı, ama transform'u netleştirelim */
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
-        button:hover { background-color: var(--dark-green); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
-        button:active { transform: translateY(-1px); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+        button:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px); /* Daha belirgin kalkma */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Daha güçlü gölge */
+        }
+        button:active {
+            transform: translateY(-1px); /* Tıklarken hafif geri inme */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sonuçlar Alanı */
         #sonuclar {
             margin-top: 30px;
             padding: 20px;
@@ -99,70 +154,145 @@
             border-radius: 8px;
             background-color: #e6ffe6;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            opacity: 0;
+            /* YENİ: Hesaplama sonrası yavaşça belirme animasyonu */
+            opacity: 0; 
             transform: scale(0.95);
         }
-        .show-results { animation: resultPopUp 0.5s ease-out forwards; }
-        @keyframes resultPopUp { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
-        #sonuclar p { margin: 8px 0; font-size: 1.15em; color: var(--dark-green); }
-        #sonuclar p strong { color: var(--primary-green); }
-        #sonuclar p:last-child { margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--accent-green); font-weight: 700; }
-        #sonuclar p.error-message { color: #d32f2f; font-weight: 700; text-align: center; }
+        
+        /* Hesaplama sonrası animasyon sınıfı (JS ile eklenecek) */
+        .show-results {
+            animation: resultPopUp 0.5s ease-out forwards;
+        }
+
+        @keyframes resultPopUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #sonuclar p {
+            margin: 8px 0;
+            font-size: 1.15em;
+            color: var(--dark-green);
+        }
+        #sonuclar p strong {
+            color: var(--primary-green);
+        }
+        #sonuclar p:last-child {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--accent-green);
+            font-weight: 700;
+        }
+        #sonuclar p.error-message {
+            color: #d32f2f;
+            font-weight: 700;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Alvo Material Hesablayıcı</h2>
+
         <div>
             <label for="uzunluk">Uzunluğ (metr):</label>
             <input type="number" id="uzunluk" step="0.01">
         </div>
+
         <div>
             <label for="yukseklik">Hündürlük (metr):</label>
             <input type="number" id="yukseklik" step="0.01">
         </div>
+
         <div class="ekstralar">
             <p style="font-weight: bold; margin-top: 0;">Əlavə Seçimlər:</p>
-            <label><input type="checkbox" id="panel">Panel (+200)</label>
-            <label><input type="checkbox" id="led">Led (+150)</label>
-            <label><input type="checkbox" id="suse-fitrin">Şüşə fitrin (+200)</label>
+            <label>
+                <input type="checkbox" id="panel">
+                Panel (+200)
+            </label>
+            <label>
+                <input type="checkbox" id="led">
+                Led (+150)
+            </label>
+            <label>
+                <input type="checkbox" id="suse-fitrin">
+                Şüşə fitrin (+200)
+            </label>
         </div>
         <button onclick="hesapla()">Hesabla</button>
+
         <div id="sonuclar">
             <p>Nəticələr burada göstəriləcək.</p>
         </div>
     </div>
+
     <script>
         function hesapla() {
+            // 1. Girişleri Al
             const longe = parseFloat(document.getElementById('uzunluk').value);
             const high = parseFloat(document.getElementById('yukseklik').value);
             const sonuclarDiv = document.getElementById('sonuclar');
+            
+            // Animasyon sınıfını temizle (tekrar çalıştırmak için)
             sonuclarDiv.classList.remove('show-results');
+            
             if (isNaN(longe) || isNaN(high) || longe < 0 || high < 0) {
                 sonuclarDiv.innerHTML = "<p class='error-message'>Lütfen geçerli pozitif sayılar giriniz.</p>";
+                // Hata durumunda animasyonu uygulamıyoruz
                 return;
             }
+
+            // 2. Temel Hesaplamayı Yap
             let artiq = 0;
-            if (high > 2.2) { artiq = high - 2.2; artiq = Math.round(artiq * 100) / 100; }
-            let akril = ((longe * 250) + (artiq * 250)) *30/100+(longe * 250) + (artiq * 250);
-            let membran = ((longe * 350) + (artiq * 350)) *20/100 + ((longe * 350) + (artiq * 350);
-            let boya = ((longe * 550) + (artiq * longe * 350))* 15/100 + (longe * 550) + (artiq * longe * 350);
+            if (high > 2.2) {
+                artiq = high - 2.2;
+                artiq = Math.round(artiq * 100) / 100;
+            }
+
+            let akril = ((longe * 250) + (artiq * 250)) * 30 / 100 + (longe * 250) + (artiq * 250);
+            let membran = ((longe * 350) + (artiq * 350)) * 20 / 100 + (longe * 350) + (artiq * 350);
+            let boya = ((longe * 550) + (artiq * longe * 350)) * 15 / 100 + (longe * 550) + (artiq * longe * 350);
+            // 3. Ekstra Maliyeti Hesapla
             let ekstraMaliyet = 0;
-            if (document.getElementById('panel').checked) ekstraMaliyet += 200;
-            if (document.getElementById('led').checked) ekstraMaliyet += 150;
-            if (document.getElementById('suse-fitrin').checked) ekstraMaliyet += 200;
+
+            if (document.getElementById('panel').checked) {
+                ekstraMaliyet += 200;
+            }
+            if (document.getElementById('led').checked) {
+                ekstraMaliyet += 150;
+            }
+            if (document.getElementById('suse-fitrin').checked) {
+                ekstraMaliyet += 200;
+            }
+
+            // 4. Ekstra Maliyeti Tüm Ürünlere Ekle
             akril += ekstraMaliyet;
             membran += ekstraMaliyet;
             boya += ekstraMaliyet;
+
+            // 5. Sonuçları Göster
             sonuclarDiv.innerHTML = `
                 <p><strong>Akril (Ekstra Dahil):</strong> ${akril.toFixed(2)} AZN</p>
                 <p><strong>Membran (Ekstra Dahil):</strong> ${membran.toFixed(2)} AZN</p>
                 <p><strong>Boya (Ekstra Dahil):</strong> ${boya.toFixed(2)} AZN</p>
                 <p style="margin-top: 15px; border-top: 1px dashed var(--accent-green); padding-top: 10px;">
                     <strong>Toplam Ekstra Maliyet:</strong> ${ekstraMaliyet.toFixed(2)} AZN
-                </p>`;
-            setTimeout(() => { sonuclarDiv.classList.add('show-results'); }, 50);
+                </p>
+            `;
+            
+            // YENİ: Hesaplama bittikten sonra animasyon sınıfını ekle
+            // Bu, sonuç kutusunun yavaşça belirip büyümesini sağlar.
+            setTimeout(() => {
+                 sonuclarDiv.classList.add('show-results');
+            }, 50); // Kısa bir gecikme, animasyonun tetiklenmesini sağlar
         }
     </script>
+
 </body>
 </html>
