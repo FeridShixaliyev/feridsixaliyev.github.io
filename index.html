@@ -214,7 +214,7 @@
             <p style="font-weight: bold; margin-top: 0;">Əlavə Seçimlər:</p>
             <label>
                 <input type="checkbox" id="panel">
-                Panel (+200)
+                Panel (+300)
             </label>
             <label>
                 <input type="checkbox" id="led">
@@ -222,7 +222,7 @@
             </label>
             <label>
                 <input type="checkbox" id="suse-fitrin">
-                Şüşə fitrin (+200)
+                Şüşə fitrin (+300)
             </label>
         </div>
         <button onclick="hesapla()">Hesabla</button>
@@ -255,20 +255,20 @@
                 artiq = Math.round(artiq * 100) / 100;
             }
 
-            let akril = ((longe * 250) + (artiq * 250)) * 33 / 100 + (longe * 250) + (artiq * 250);
-            let membran = ((longe * 350) + (artiq * 350)) * 24 / 100 + (longe * 350) + (artiq * 350);
-            let boya = ((longe * 550) + (artiq * longe * 350)) * 16 / 100 + (longe * 550) + (artiq * longe * 350);
+            let akril = ((longe * 350) + (artiq * 350)) * 33 / 100 + (longe * 350) + (artiq * 350);
+            let membran = ((longe * 500) + (artiq * 500)) * 24 / 100 + (longe * 500) + (artiq * 500);
+            let boya = ((longe * 750) + (artiq * longe * 750)) * 16 / 100 + (longe * 750) + (artiq * longe * 750);
             // 3. Ekstra Maliyeti Hesapla
             let ekstraMaliyet = 0;
 
             if (document.getElementById('panel').checked) {
-                ekstraMaliyet += 200;
+                ekstraMaliyet += 300;
             }
             if (document.getElementById('led').checked) {
                 ekstraMaliyet += 150;
             }
             if (document.getElementById('suse-fitrin').checked) {
-                ekstraMaliyet += 200;
+                ekstraMaliyet += 300;
             }
 
             // 4. Ekstra Maliyeti Tüm Ürünlere Ekle
