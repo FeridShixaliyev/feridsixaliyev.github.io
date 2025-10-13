@@ -224,6 +224,10 @@
                 <input type="checkbox" id="suse-fitrin">
                 Şüşə fitrin (+300)
             </label>
+            <label>
+                <input type="checkbox" id="blum">
+                Blum (+600)
+            </label>
         </div>
         <button onclick="hesapla()">Hesabla</button>
 
@@ -269,6 +273,9 @@
             }
             if (document.getElementById('suse-fitrin').checked) {
                 ekstraMaliyet += 300;
+            }
+            if (document.getElementById('blum').checked) {
+                ekstraMaliyet += 600;
             }
 
             // 4. Ekstra Maliyeti Tüm Ürünlere Ekle
