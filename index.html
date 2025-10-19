@@ -45,7 +45,7 @@
             animation: fadeIn 0.8s ease-out forwards;
         }
 
-        /* Sayfa yüklenirken container'ı yavaşça görünür yapan animasyon */
+        
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -85,11 +85,11 @@
             border-color: var(--primary-green);
             box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
             outline: none;
-            /* YENİ: Focus'ta hafif büyütme efekti */
+            
             transform: scale(1.01);
         }
 
-        /* Ekstra Seçenekler */
+        
         .ekstralar {
             margin-bottom: 30px;
             padding: 20px;
@@ -105,7 +105,7 @@
             font-size: 1.1em;
         }
         .ekstralar label {
-            /* YENİ: Checkbox hover animasyonu için etiket de kullanılıyor */
+            
             transition: background-color 0.3s ease;
             padding: 5px 0; /* Geçiş için padding eklendi */
             border-radius: 4px;
@@ -121,7 +121,7 @@
             cursor: pointer;
         }
 
-        /* Hesapla Düğmesi */
+        
         button {
             background-color: var(--primary-green);
             color: white;
@@ -133,7 +133,7 @@
             font-weight: 700;
             width: 100%;
             margin-top: 20px;
-            /* Geçişler zaten vardı, ama transform'u netleştirelim */
+            
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
 
@@ -147,7 +147,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Sonuçlar Alanı */
+        
         #sonuclar {
             margin-top: 30px;
             padding: 20px;
@@ -155,7 +155,7 @@
             border-radius: 8px;
             background-color: #e6ffe6;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            /* YENİ: Hesaplama sonrası yavaşça belirme animasyonu */
+            
             opacity: 0; 
             transform: scale(0.95);
         }
