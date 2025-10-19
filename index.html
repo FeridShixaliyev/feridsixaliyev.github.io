@@ -8,13 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #4CAF50;   /* Ana yeşil */
-            --dark-green: #388E3C;      /* Koyu yeşil */
-            --accent-green: #66BB6A;    /* Vurgu yeşili */
+            --primary-green: #4CAF50;   
+            --dark-green: #388E3C;      
+            --accent-green: #66BB6A;    
             --text-color: #333;
-            --light-bg: #e8f5e9;        /* Açık yeşilimsi arka plan */
+            --light-bg: #e8f5e9;        
             --card-bg: #ffffff;
-            --border-color: #c8e6c9;    /* Hafif yeşil kenarlık */
+            --border-color: #c8e6c9;    
             --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
@@ -39,7 +39,7 @@
             max-width: 480px;
             width: 100%;
             border: 1px solid var(--border-color);
-            /* YENİ: Animasyon için başlangıç durumu */
+            
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.8s ease-out forwards;
@@ -78,7 +78,7 @@
             box-sizing: border-box;
             font-size: 1em;
             color: var(--text-color);
-            /* YENİ: Hızlı ve yumuşak geçişler */
+            
             transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
         }
         input[type="number"]:focus {
@@ -107,11 +107,11 @@
         .ekstralar label {
             
             transition: background-color 0.3s ease;
-            padding: 5px 0; /* Geçiş için padding eklendi */
+            padding: 5px 0; 
             border-radius: 4px;
         }
         .ekstralar label:hover {
-            background-color: #e6ffe6; /* Hover'da hafif arka plan rengi */
+            background-color: #e6ffe6;
         }
         .ekstralar input[type="checkbox"] {
             margin-right: 12px;
@@ -139,11 +139,11 @@
 
         button:hover {
             background-color: var(--dark-green);
-            transform: translateY(-3px); /* Daha belirgin kalkma */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Daha güçlü gölge */
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); 
         }
         button:active {
-            transform: translateY(-1px); /* Tıklarken hafif geri inme */
+            transform: translateY(-1px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
@@ -160,7 +160,7 @@
             transform: scale(0.95);
         }
         
-        /* Hesaplama sonrası animasyon sınıfı (JS ile eklenecek) */
+        
         .show-results {
             animation: resultPopUp 0.5s ease-out forwards;
         }
