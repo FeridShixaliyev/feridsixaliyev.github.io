@@ -239,21 +239,21 @@
 
     <script>
         function hesapla() {
-            // 1. Girişleri Al
+            
             const longe = parseFloat(document.getElementById('uzunluk').value);
             const high = parseFloat(document.getElementById('yukseklik').value);
             const sonuclarDiv = document.getElementById('sonuclar');
             
-            // Animasyon sınıfını temizle (tekrar çalıştırmak için)
+        
             sonuclarDiv.classList.remove('show-results');
             
             if (isNaN(longe) || isNaN(high) || longe < 0 || high < 0) {
                 sonuclarDiv.innerHTML = "<p class='error-message'>Lütfen geçerli pozitif sayılar giriniz.</p>";
-                // Hata durumunda animasyonu uygulamıyoruz
+                
                 return;
             }
 
-            // 2. Temel Hesaplamayı Yap
+            
             let artiq = 0;
             if (high > 2.2) {
                 artiq = high - 2.2;
@@ -263,7 +263,7 @@
             let akril = ((longe * 350) + (artiq * 350)) * 34 / 100 + (longe * 350) + (artiq * 350);
             let membran = ((longe * 550) + (artiq * 550)) * 24 / 100 + (longe * 550) + (artiq * 550);
             let boya = ((longe * 750) + (artiq * longe * 750)) * 16 / 100 + (longe * 750) + (artiq * longe * 550);
-            // 3. Ekstra Maliyeti Hesapla
+            
             let ekstraMaliyet = 0;
 
             if (document.getElementById('panel').checked) {
@@ -279,12 +279,12 @@
                 ekstraMaliyet += 960;
             }
 
-            // 4. Ekstra Maliyeti Tüm Ürünlere Ekle
+            
             akril += ekstraMaliyet;
             membran += ekstraMaliyet;
             boya += ekstraMaliyet;
 
-            // 5. Sonuçları Göster
+            
             sonuclarDiv.innerHTML = `
                 <p><strong>Akril :</strong> ${akril.toFixed(2)} AZN</p>
                 <p><strong>Membran :</strong> ${membran.toFixed(2)} AZN</p>
@@ -294,11 +294,9 @@
                 </p>
             `;
             
-            // YENİ: Hesaplama bittikten sonra animasyon sınıfını ekle
-            // Bu, sonuç kutusunun yavaşça belirip büyümesini sağlar.
             setTimeout(() => {
                  sonuclarDiv.classList.add('show-results');
-            }, 50); // Kısa bir gecikme, animasyonun tetiklenmesini sağlar
+            }, 50);
         }
     </script>
 
